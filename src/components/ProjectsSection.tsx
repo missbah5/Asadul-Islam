@@ -131,9 +131,6 @@ export default function ProjectsSection({ onSelectProject }: ProjectsSectionProp
                       <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-[#00CFF6] transition-colors line-clamp-1">
                         {project.title}
                       </h3>
-                      <span className="text-[11px] font-semibold text-slate-400 shrink-0 ml-2">
-                        {project.duration}
-                      </span>
                     </div>
 
                   </div>

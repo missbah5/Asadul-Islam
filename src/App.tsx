@@ -5,7 +5,6 @@ import ProjectsSection from './components/ProjectsSection';
 import GraphicDesignSection from './components/GraphicDesignSection';
 import VideoModal from './components/VideoModal';
 import BeforeAfterSection from './components/BeforeAfterSection';
-import ContactSection from './components/ContactSection';
 import SingleFileExportModal from './components/SingleFileExportModal';
 import CvModal from './components/CvModal';
 import Footer from './components/Footer';
@@ -70,9 +69,6 @@ export default function App() {
 
         {/* 4. Graphic Design & Photo Manipulation Showcase */}
         <GraphicDesignSection />
-
-        {/* 5. Contact Section & Social Media */}
-        <ContactSection selectedService="Video & Design Project" />
       </main>
 
       {/* Footer */}

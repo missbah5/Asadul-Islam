@@ -24,7 +24,6 @@ export default function Navbar({ onOpenShowreel, onOpenExportModal, onOpenCvModa
     { name: 'Video Projects', href: '#projects' },
     { name: 'Before & After', href: '#before-after' },
     { name: 'Graphic Design', href: '#graphic-design' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   return (

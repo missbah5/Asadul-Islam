@@ -94,36 +94,18 @@ export default function BeforeAfterSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header - Clean Title Only */}
-        <div className="text-center max-w-2xl mx-auto mb-8">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00CFF6]/10 border border-[#00CFF6]/30 text-xs font-semibold text-[#00CFF6] mb-3 shadow-[0_0_15px_rgba(0,207,246,0.15)]">
+            <Sparkles className="w-3.5 h-3.5 text-[#00CFF6]" />
+            <span>Color Grading</span>
+          </div>
           <h2 
             id="before-after-title"
             className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight"
           >
             Before & After <span className="text-[#00CFF6]">Grading</span>
           </h2>
-        </div>
-
-        {/* Preset Selector Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-          {BEFORE_AFTER_DATA.map((preset, idx) => (
-            <button
-              key={preset.id}
-              onClick={() => {
-                setActivePresetIndex(idx);
-                setSliderPosition(50);
-                setIsAutoScanning(false);
-              }}
-              id={`preset-btn-${preset.id}`}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                activePresetIndex === idx
-                  ? 'bg-[#00CFF6] text-black font-bold shadow-lg shadow-[#00CFF6]/25 scale-[1.02]'
-                  : 'bg-[#0e1117] text-slate-300 border border-slate-800 hover:border-[#00CFF6]/40 hover:text-white'
-              }`}
-            >
-              <span>{preset.title}</span>
-            </button>
-          ))}
         </div>
 
         {/* Interactive Single-Frame Split Comparison Canvas with Rotating Glowing Light Beam */}
@@ -207,59 +189,48 @@ export default function BeforeAfterSection() {
                   </div>
                 </div>
               </div>
-
-              {/* Labels On Canvas */}
-              <div className="absolute top-4 left-4 z-30 pointer-events-none">
-                <span className="px-3 py-1.5 rounded-lg text-xs font-bold bg-black/85 backdrop-blur-md border border-amber-500/60 text-amber-400 flex items-center gap-1.5 shadow-lg">
-                  <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                  {currentPreset.beforeLabel}
-                </span>
-              </div>
-
-              <div className="absolute top-4 right-4 z-30 pointer-events-none">
-                <span className="px-3 py-1.5 rounded-lg text-xs font-bold bg-black/85 backdrop-blur-md border border-[#00CFF6]/60 text-[#00CFF6] flex items-center gap-1.5 shadow-lg">
-                  <Sparkles className="w-3 h-3 text-[#00CFF6]" />
-                  {currentPreset.afterLabel}
-                </span>
-              </div>
-
-              {/* Bottom Drag Prompt Tooltip */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                <span className="px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold bg-black/85 backdrop-blur-md border border-slate-700/80 text-slate-300 shadow-lg whitespace-nowrap">
-                  ↔ Drag slider left (Before) or right (After)
-                </span>
-              </div>
             </div>
 
           </div>
 
-          {/* Minimal Controls Bar */}
-          <div className="mt-5 flex items-center justify-center gap-3">
-            <button
-              onClick={() => setIsAutoScanning(!isAutoScanning)}
-              id="toggle-auto-scan-btn"
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                isAutoScanning
-                  ? 'bg-[#00CFF6] text-black font-bold shadow-lg shadow-[#00CFF6]/30'
-                  : 'bg-[#0e1117] text-slate-300 hover:bg-[#141822] hover:text-white border border-slate-800'
-              }`}
-            >
-              {isAutoScanning ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-              <span>{isAutoScanning ? 'Stop Auto-Scan' : 'Auto-Scan Motion'}</span>
-            </button>
+          {/* Outside Bottom Slider Instructions & Controls */}
+          <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4 px-2">
+            
+            {/* Instruction Text Placed Outside Below Video */}
+            <div className="text-xs sm:text-sm font-medium text-slate-300 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#00CFF6] animate-pulse"></span>
+              <span>Drag slider left (Before) or right (After)</span>
+            </div>
 
-            <button
-              onClick={() => {
-                setIsAutoScanning(false);
-                setSliderPosition(50);
-              }}
-              id="reset-slider-btn"
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#0e1117] text-slate-400 hover:text-slate-200 border border-slate-800 cursor-pointer"
-              title="Reset Slider to Center"
-            >
-              <RefreshCw className="w-3.5 h-3.5" />
-              <span>50/50 Center</span>
-            </button>
+            {/* Controls Bar */}
+            <div className="flex items-center gap-2.5">
+              <button
+                onClick={() => setIsAutoScanning(!isAutoScanning)}
+                id="toggle-auto-scan-btn"
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  isAutoScanning
+                    ? 'bg-[#00CFF6] text-black font-bold shadow-lg shadow-[#00CFF6]/30'
+                    : 'bg-[#0e1117] text-slate-300 hover:bg-[#141822] hover:text-white border border-slate-800'
+                }`}
+              >
+                {isAutoScanning ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                <span>{isAutoScanning ? 'Stop Auto-Scan' : 'Auto-Scan Motion'}</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setIsAutoScanning(false);
+                  setSliderPosition(50);
+                }}
+                id="reset-slider-btn"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#0e1117] text-slate-400 hover:text-slate-200 border border-slate-800 cursor-pointer"
+                title="Reset Slider to Center"
+              >
+                <RefreshCw className="w-3.5 h-3.5" />
+                <span>50/50 Center</span>
+              </button>
+            </div>
+
           </div>
 
         </div>
