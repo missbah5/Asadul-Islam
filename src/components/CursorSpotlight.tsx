@@ -69,13 +69,13 @@ export default function CursorSpotlight() {
 
         // Direct DOM updates for ultra-smooth buttery 60fps rendering without React overhead
         if (torchWideRef.current) {
-          torchWideRef.current.style.background = `radial-gradient(950px circle at ${lightPos.current.x}px ${lightPos.current.y}px, rgba(0, 207, 246, 0.18), rgba(0, 207, 246, 0.05) 50%, transparent 80%)`;
+          torchWideRef.current.style.background = `radial-gradient(750px circle at ${lightPos.current.x}px ${lightPos.current.y}px, rgba(0, 207, 246, 0.07), rgba(0, 207, 246, 0.02) 50%, transparent 75%)`;
         }
         if (torchMidRef.current) {
-          torchMidRef.current.style.background = `radial-gradient(420px circle at ${lightPos.current.x}px ${lightPos.current.y}px, rgba(0, 207, 246, 0.22), rgba(0, 207, 246, 0.08) 60%, transparent 80%)`;
+          torchMidRef.current.style.background = `radial-gradient(350px circle at ${lightPos.current.x}px ${lightPos.current.y}px, rgba(0, 207, 246, 0.09), rgba(0, 207, 246, 0.03) 60%, transparent 75%)`;
         }
         if (torchCoreRef.current) {
-          torchCoreRef.current.style.background = `radial-gradient(160px circle at ${lightPos.current.x}px ${lightPos.current.y}px, rgba(0, 207, 246, 0.28), transparent 75%)`;
+          torchCoreRef.current.style.background = `radial-gradient(130px circle at ${lightPos.current.x}px ${lightPos.current.y}px, rgba(0, 207, 246, 0.12), transparent 70%)`;
         }
 
         if (ringFollowerRef.current) {
@@ -108,13 +108,13 @@ export default function CursorSpotlight() {
         className="absolute inset-0 will-change-[background]"
       />
 
-      {/* Intense Mid-Core Radiant Light */}
+      {/* Subtle Mid-Core Radiant Light */}
       <div
         ref={torchMidRef}
         className="absolute inset-0 will-change-[background]"
       />
 
-      {/* Crisp Intense Focal Core */}
+      {/* Crisp Soft Focal Core */}
       <div
         ref={torchCoreRef}
         className="absolute inset-0 will-change-[background]"
@@ -123,14 +123,14 @@ export default function CursorSpotlight() {
       {/* Magnetic Rubber Spring Follower Orb / Ring */}
       <div
         ref={ringFollowerRef}
-        className="absolute top-0 left-0 w-8 h-8 rounded-full border-[1.5px] border-[#00CFF6] bg-[#00CFF6]/15 backdrop-blur-[1px] hidden md:flex items-center justify-center will-change-transform"
+        className="absolute top-0 left-0 w-8 h-8 rounded-full border border-[#00CFF6]/60 bg-[#00CFF6]/8 backdrop-blur-[0.5px] hidden md:flex items-center justify-center will-change-transform"
         style={{
-          boxShadow: '0 0 20px 4px rgba(0, 207, 246, 0.65), 0 0 40px 10px rgba(0, 207, 246, 0.25), inset 0 0 10px rgba(0, 207, 246, 0.4)',
+          boxShadow: '0 0 12px 2px rgba(0, 207, 246, 0.35), 0 0 24px 4px rgba(0, 207, 246, 0.15), inset 0 0 6px rgba(0, 207, 246, 0.2)',
         }}
       >
         {/* Glowing Center Micro-Core */}
         <div 
-          className="w-1.5 h-1.5 rounded-full bg-[#00CFF6] shadow-[0_0_8px_#00CFF6]" 
+          className="w-1.5 h-1.5 rounded-full bg-[#00CFF6]/80 shadow-[0_0_5px_#00CFF6]" 
         />
       </div>
     </div>
